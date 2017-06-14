@@ -5,7 +5,7 @@
   'use strict';
 
   // declaring variables
-  var url = 'https://randomuser.me/api/';
+  var url = 'https://randomuser.me/api/?results=12';
   var customers = document.querySelector('.customers');
   var infoBegins = [];
   var picture;
@@ -22,24 +22,35 @@
 
   // fetching users data with get request
   fetch(url).then(function(response){
+    console.log('response', response);
     response.json().then(function(data){
       // console.log(data);
-      infoBegins = data.results[0];
-      console.log(infoBegins);
+      infoBegins = data.results;
+      // console.log('infoBegins', infoBegins);
+      // var data = data;
       // return infoBegins;
 
-      // for (var i = 0; i < infoBegins.length; i++) {
-      //   console.log(infoBegins[i]);
-      //
-      // }
+      for (var i = 0; i < infoBegins.length; i++) {
+        console.log('person', infoBegins[i]);
+        // photo
+        var picture = '<img src="' + infoBegins[i].picture.large + '">';
+        console.log('picture: ', picture);
+
+        // name
+        var name = infoBegins[i].name.first + ' ' + infoBegins[i].name.last;
+        console.log('full name: ', name);
+
+        // email
+        var email = infoBegins[i].email;
+        console.log('email: ', email);
+
+        
+
+      }
 
       // console.log(infoBegins.picture.large);
       //
-      picture = '<img src="' + infoBegins.picture.large + '">';
-      firstName = infoBegins.name.first;
-      lastName = infoBegins.name.last;
-      name = firstName + ' ' + lastName;
-      email = infoBegins.email;
+
       street = infoBegins.location.street;
       console.log (street);
       city = infoBegins.location.city;
