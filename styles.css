@@ -43,18 +43,19 @@ h1 {
 .email {
   text-align: center;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   color: #D1D1D1;
 }
 
 .full-address {
   text-align: center;
   text-transform: capitalize;
-  font-size: 14px;
+  font-size: 13px;
   color: #7A7A7A;
 }
 
 .phone {
   text-align: center;
+  font-size: 13px;
   color: #7A7A7A;
 }
